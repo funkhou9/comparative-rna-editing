@@ -1,6 +1,8 @@
 # comparative-rna-editing
 
-## A list of possible datasets that may be used in a comparative RNA editing study.
+> A preliminary working space to prepare for comparative RNA editing project
+
+## A list of possible datasets
 
 ### Mouse
 
