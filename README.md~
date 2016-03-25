@@ -4,6 +4,7 @@
 
 ## Mouse
 
-- [RNASeq - 9 tissues from Huntley et al.](http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE74747)
-- [WGS - from Huntley et al.](http://www.ebi.ac.uk/ena/data/view/ERP010840)
+- [Huntley et al](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4714477/)
+	* [RNASeq - 9 tissues](http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE74747)
+	* [WGS](http://www.ebi.ac.uk/ena/data/view/ERP010840)
 
