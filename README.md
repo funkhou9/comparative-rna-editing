@@ -1,8 +1,9 @@
 # comparative-rna-editing
 
-> A preliminary working space to prepare for comparative RNA editing project
+> What patterns in RNA edited sites (positioning in the transcriptome, editing levels) can be 
+> discovered by analyzing data from different mammalian species harboring distinct SINE elements?
 
-## A list of possible datasets
+## Possible sources of data from literature
 
 ### Mouse
 
@@ -10,8 +11,9 @@
 	* [RNASeq - 9 tissues](http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE74747)
 	* [WGS](http://www.ebi.ac.uk/ena/data/view/ERP010840)
 
-## Current working scripts
-
-- sql_local_test.R - Experimenting with the NCBI database and learning to query what I need
+[**query_metadata**](./query_metadata/query_metadata.md): Scripts using Bioconductor packages
+designed to query data from NCBI databases. Ideally, I can recover the required data I need (WGS
+and RNAseq from the same individuals) from experiments not necessarily originally intended to
+investigate RNA editing.
 
 

@@ -1,0 +1,109 @@
+
+
+processing file: 2-SRA_query.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |...                                                              |   5%
+  ordinary text without R code
+
+  |                                                                         |.......                                                          |  11%
+label: unnamed-chunk-1
+  |                                                                         |..........                                                       |  16%
+  ordinary text without R code
+
+  |                                                                         |..............                                                   |  21%
+label: unnamed-chunk-2
+  |                                                                         |.................                                                |  26%
+  ordinary text without R code
+
+  |                                                                         |.....................                                            |  32%
+label: unnamed-chunk-3
+  |                                                                         |........................                                         |  37%
+  ordinary text without R code
+
+  |                                                                         |...........................                                      |  42%
+label: unnamed-chunk-4
+  |                                                                         |...............................                                  |  47%
+  ordinary text without R code
+
+  |                                                                         |..................................                               |  53%
+label: unnamed-chunk-5
+  |                                                                         |......................................                           |  58%
+  ordinary text without R code
+
+  |                                                                         |.........................................                        |  63%
+label: unnamed-chunk-6
+  |                                                                         |............................................                     |  68%
+  ordinary text without R code
+
+  |                                                                         |................................................                 |  74%
+label: unnamed-chunk-7
+  |                                                                         |...................................................              |  79%
+  ordinary text without R code
+
+  |                                                                         |.......................................................          |  84%
+label: unnamed-chunk-8
+  |                                                                         |..........................................................       |  89%
+  ordinary text without R code
+
+  |                                                                         |..............................................................   |  95%
+label: unnamed-chunk-9
+  |                                                                         |.................................................................| 100%
+  ordinary text without R code
+
+
+output file: 2-SRA_query.md
+
+Job Id: 33705466.mgr-04.i
+    Job_Name = 2-SRA_query
+    Job_Owner = funkhou9@dev-intel16.i
+    resources_used.cput = 00:00:01
+    resources_used.energy_used = 0
+    resources_used.mem = 83060kb
+    resources_used.vmem = 592780kb
+    resources_used.walltime = 00:00:09
+    job_state = R
+    queue = main
+    server = mgr-04.i
+    Checkpoint = u
+    ctime = Fri Jul  8 23:41:58 2016
+    Error_Path = dev-intel16:/mnt/research/ernstc_lab/comparative-rna-editing/
+	query_metadata/scripts/2-SRA_query_literate/2-SRA_query.out
+    exec_host = lac-228/24
+    Hold_Types = n
+    Join_Path = oe
+    Keep_Files = n
+    Mail_Points = abe
+    mtime = Fri Jul  8 23:42:33 2016
+    Output_Path = dev-intel16:/mnt/research/ernstc_lab/comparative-rna-editing
+	/query_metadata/scripts/2-SRA_query_literate/2-SRA_query.out
+    Priority = 0
+    qtime = Fri Jul  8 23:41:58 2016
+    Rerunable = False
+    Resource_List.mem = 10gb
+    Resource_List.nodect = 1
+    Resource_List.nodes = 1:ppn=1:intel16
+    Resource_List.walltime = 00:30:00
+    session_id = 29564
+    Variable_List = PBS_O_QUEUE=main,PBS_O_HOME=/mnt/home/funkhou9,
+	PBS_O_LOGNAME=funkhou9,
+	PBS_O_PATH=/opt/software/R/3.2.0--GCC-4.4.5/bin:/opt/software/powerto
+	ols/bin:/opt/software/Stata/13.0:/opt/software/MATLAB/R2014a/bin:/opt/
+	software/Python/2.7.2--GCC-4.4.5/bin:/opt/software/cmake/2.8.5--GCC-4.
+	4.5/bin:/opt/software/OpenMPI/1.4.3--GCC-4.4.5/bin:/usr/lib64/qt-3.3/b
+	in:/opt/software/lmod/bin:/opt/moab/bin:/usr/local/bin:/bin:/usr/bin:/
+	usr/local/sbin:/usr/sbin:/sbin:/usr/local/hpcc/bin:/opt/ibutils/bin:/m
+	nt/home/funkhou9/Productivity,PBS_O_MAIL=/var/spool/mail/funkhou9,
+	PBS_O_SHELL=/bin/bash,PBS_O_LANG=en_US.UTF-8,
+	PBS_O_WORKDIR=/mnt/research/ernstc_lab/comparative-rna-editing/query_
+	metadata/scripts,PBS_O_HOST=dev-intel16.i,PBS_O_SERVER=mgr-04
+    euser = funkhou9
+    egroup = gen
+    queue_type = E
+    etime = Fri Jul  8 23:41:58 2016
+    submit_args = base.sh
+    start_time = Fri Jul  8 23:42:33 2016
+    Walltime.Remaining = 1744
+    start_count = 1
+    fault_tolerant = False
+    job_radix = 0
+    submit_host = dev-intel16.i
+
