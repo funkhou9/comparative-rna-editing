@@ -1,7 +1,9 @@
 # comparative-rna-editing
 
-> What patterns in RNA edited sites (positioning in the transcriptome, editing levels) can be 
+> What patterns in RNA edited sites (positioning in the transcriptome, editing levels) can be
 > discovered by analyzing data from different mammalian species harboring distinct SINE elements?
+> Very little work has been done to apply comparative genomics to this phenomenon
+> using both WGS and RNA-Seq from the same individuals/samples.
 
 ## Possible sources of data from literature
 
@@ -15,5 +17,3 @@
 designed to query data from NCBI databases. Ideally, I can recover the required data I need (WGS
 and RNAseq from the same individuals) from experiments not necessarily originally intended to
 investigate RNA editing.
-
-
