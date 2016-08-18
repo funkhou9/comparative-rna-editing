@@ -25,4 +25,6 @@ sequence read archive generally don't have personally identifiable data.
 > discussion of this topic. Repositories such as GTEx and ICGC may be used,
 > but they are human-only and require an application to access raw sequencing
 > data. Nevertheless, they may prove useful for human although the primate component
-> of this study can come from non-human primate data as well.
+> of this study can come from non-human primate data as well. Instructions for
+> accessing GTEx data (perhaps the most promising human datasource) can be found
+> [here](http://www.gtexportal.org/static/misc/GTEx_Poster_CommunityMeeting_TY.pdf)
