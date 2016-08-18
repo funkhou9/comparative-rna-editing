@@ -16,4 +16,11 @@
 [**query_metadata**](./query_metadata/query_metadata.md): Scripts using Bioconductor packages
 designed to query data from NCBI databases. Ideally, I can recover the required data I need (WGS
 and RNAseq from the same individuals) from experiments not necessarily originally intended to
-investigate RNA editing.
+investigate RNA editing. This may prove difficult since repositories such as the
+sequence read archive generally don't have personally identifiable data.
+
+> Click [here](https://twitter.com/saf6/status/760977581302804480) for a twitter
+> discussion of this topic. Repositories such as GTEx and ICGC may be used,
+> but they are human-only and require an application to access raw sequencing
+> data. Nevertheless, they may prove useful for human although the primate component
+> of this study can come from non-human primate data as well.
