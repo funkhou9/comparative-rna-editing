@@ -13,6 +13,8 @@
 	* [RNASeq - 9 tissues](http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE74747)
 	* [WGS](http://www.ebi.ac.uk/ena/data/view/ERP010840)
 
+## Analysis scripts
+
 [**query_metadata**](./query_metadata/query_metadata.md): Scripts using Bioconductor packages
 designed to query data from NCBI databases. Ideally, I can recover the required data I need (WGS
 and RNAseq from the same individuals) from experiments not necessarily originally intended to
