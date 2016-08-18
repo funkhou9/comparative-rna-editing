@@ -13,6 +13,8 @@
   - [Inspect tables and fields](#inspect-contents-of-sra-database)
   - [Search for ADAR-related data](#search-for-adar-related-data)
   - [Query data with SQL](#query-data-with-sql)
+  - [Assemble experiments for each sample](#assemble-experiments-for-each-sample)
+  - [Isolate SRA studies](#isolate-sra-studies)
 6. [Save data](#save-data)
 
 
@@ -22,8 +24,10 @@ setwd("/mnt/research/ernstc_lab/comparative-rna-editing/query_metadata/scripts")
 
 ## Objectives
 
-1. Use SRAdb package to query Sequence Read Archive data. The SRA should contain more raw
-sequence files than GEO.
+1. Use SRAdb package to query Sequence Read Archive data. Looking for samples
+that possess at least one WGS and at least one RNA-Seq experiment. From which
+studies do these experiments come from? Will they prove useful in an RNA editing
+study?
 
 ## Install libraries
 Install and attach GEOmetadb
@@ -480,7 +484,8 @@ knitr::kable(data.frame("Usable_samples_for_each_species" = sort(table(query$sci
 |Zoysia japonica                                  |                               1|
 |Zymoseptoria tritici                             |                               1|
 
-For species of interest (mammalian species where at least 2 samples each with WGS
+### Assemble experiments for each sample
+For each species of interest (mammalian species where at least 2 samples each with WGS
 and RNA-Seq data exist), assemble all experiments for each sample.
 
 1. Isolate candidate samples from each species
@@ -527,6 +532,110 @@ for (i in 1:length(species_oi)) {
     # Store results in master list
     species_list[[i]] <- ls
 }
+```
+
+Apply names of `species_oi` to master list and show the number of samples in each.
+
+
+```r
+names(species_list) <- species_oi
+lapply(species_list, length)
+```
+
+```
+## $`Homo sapiens`
+## [1] 181
+## 
+## $`Sus scrofa`
+## [1] 8
+## 
+## $`Macaca mulatta`
+## [1] 5
+## 
+## $`Pan troglodytes`
+## [1] 5
+## 
+## $`Pongo abelii`
+## [1] 5
+## 
+## $`Mus musculus`
+## [1] 4
+## 
+## $`Canis lupus familiaris`
+## [1] 2
+```
+
+### Isolate SRA studies
+For each species, how many studies are represented? i.e. how many unique
+*study_accessions* are there among the samples?
+
+> `species_list` is a list of lists, so a nested `lapply()` is used
+
+
+
+```r
+queried_studies <-
+    lapply(species_list, function(x) {
+        sample_study <- c()
+        lapply(x, function(x) {
+            sample_study <<- c(sample_study, x[, "study_accession"])
+        })
+    unique(sample_study)
+})
+queried_studies
+```
+
+```
+## $`Homo sapiens`
+##  [1] "ERP003455" "ERP004006" "ERP006077" "ERP006946" "ERP007111"
+##  [6] "ERP013436" "SRP000032" "ERP000603" "ERP001229" "SRP000033"
+## [11] "SRP000910" "SRP003029" "SRP003680" "SRP004917" "SRP005434"
+## [16] "SRP005622" "SRP004078" "SRP007298" "SRP011558" "SRP012400"
+## [21] "SRP013016" "SRP013698" "SRP018096" "SRP000547" "SRP018998"
+## [26] "SRP021027" "SRP021530" "SRP027257" "SRP027590" "SRP029958"
+## [31] "SRP036136" "SRP043024" "SRP048601" "SRP047086" "SRP061288"
+## [36] "SRP004725" "ERP003521" "ERP008628" "ERP010495" "ERP011846"
+## [41] "ERP012630" "ERP012633" "ERP012802" "ERP013950" "ERP015321"
+## [46] "ERP014371" "SRP004074" "SRP000542" "SRP016553" "SRP000548"
+## [51] "SRP003451" "SRP012316" "SRP000546" "SRP004364" "SRP000543"
+## [56] "SRP004075" "SRP001293" "SRP004365" "ERP013689" "ERP012319"
+## [61] "SRP020558" "SRP004072" "SRP001525" "SRP016550" "SRP016094"
+## [66] "SRP019973" "SRP001523" "SRP004070" "SRP002122" "SRP047124"
+## [71] "SRP064756" "SRP002045" "SRP065848" "SRP065930" "SRP071638"
+## [76] "SRP075793" "SRP005992" "SRP007497" "SRP008300" "SRP000918"
+## [81] "SRP022228" "SRP004169" "SRP028541" "SRP020473" "SRP021136"
+## [86] "SRP028521" "SRP036055" "SRP041531" "SRP042250" "SRP050453"
+## [91] "SRP054252" "SRP058948" "SRP059244"
+## 
+## $`Sus scrofa`
+## [1] "ERP009821"
+## 
+## $`Macaca mulatta`
+## [1] "ERP002376"
+## 
+## $`Pan troglodytes`
+## [1] "ERP002376"
+## 
+## $`Pongo abelii`
+## [1] "ERP002376"
+## 
+## $`Mus musculus`
+## [1] "SRP049363" "SRP059297"
+## 
+## $`Canis lupus familiaris`
+## [1] "SRP023115" "SRP024250"
+```
+
+How many studies found by querying datasets with both WGS and RNA-Seq data
+overlap with studies identified with text searching "ADAR"?
+
+
+```r
+sum(unique(rna_editing$study) %in% unname(unlist(queried_studies)))
+```
+
+```
+## [1] 0
 ```
 
 ## Save data

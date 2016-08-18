@@ -13,14 +13,18 @@
 #'   - [Inspect tables and fields](#inspect-contents-of-sra-database)
 #'   - [Search for ADAR-related data](#search-for-adar-related-data)
 #'   - [Query data with SQL](#query-data-with-sql)
+#'   - [Assemble experiments for each sample](#assemble-experiments-for-each-sample)
+#'   - [Isolate SRA studies](#isolate-sra-studies)
 #' 6. [Save data](#save-data)
 
 setwd("/mnt/research/ernstc_lab/comparative-rna-editing/query_metadata/scripts")
 
 #' ## Objectives
 #'
-#' 1. Use SRAdb package to query Sequence Read Archive data. The SRA should contain more raw
-#' sequence files than GEO.
+#' 1. Use SRAdb package to query Sequence Read Archive data. Looking for samples
+#' that possess at least one WGS and at least one RNA-Seq experiment. From which
+#' studies do these experiments come from? Will they prove useful in an RNA editing
+#' study?
 #'
 #' ## Install libraries
 
@@ -97,7 +101,9 @@ query <- dbGetQuery(con,
 knitr::kable(data.frame("Usable_samples_for_each_species" = sort(table(query$scientific_name),
                                                                  decreasing = TRUE)))
 
-#' For species of interest (mammalian species where at least 2 samples each with WGS
+#' ### Assemble experiments for each sample
+
+#' For each species of interest (mammalian species where at least 2 samples each with WGS
 #' and RNA-Seq data exist), assemble all experiments for each sample.
 #'
 #' 1. Isolate candidate samples from each species
@@ -138,6 +144,31 @@ for (i in 1:length(species_oi)) {
     # Store results in master list
     species_list[[i]] <- ls
 }
+
+#' Apply names of `species_oi` to master list and show the number of samples in each.
+names(species_list) <- species_oi
+lapply(species_list, length)
+
+#' ### Isolate SRA studies
+
+#' For each species, how many studies are represented? i.e. how many unique
+#' *study_accessions* are there among the samples?
+#'
+#' > `species_list` is a list of lists, so a nested `lapply()` is used
+#'
+queried_studies <-
+    lapply(species_list, function(x) {
+        sample_study <- c()
+        lapply(x, function(x) {
+            sample_study <<- c(sample_study, x[, "study_accession"])
+        })
+    unique(sample_study)
+})
+queried_studies
+
+#' How many studies found by querying datasets with both WGS and RNA-Seq data
+#' overlap with studies identified with text searching "ADAR"?
+sum(unique(rna_editing$study) %in% unname(unlist(queried_studies)))
 
 
 #' ## Save data
